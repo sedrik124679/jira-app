@@ -16,6 +16,7 @@ const Dashboards = () => {
     }, [dispatch])
 
     const state = useSelector(state => state.dashboards.dashboards)
+    console.log(state)
 
     if (!state) {
         return <h1>Loading...</h1>

@@ -1,14 +1,16 @@
 import axios from "axios";
 import {Buffer} from 'buffer';
 
-export const API_KEY = '3ly0E8LeZJUKuV7CUsn7C55D';
+
 export const EMAIL = 'legioner1251@gmail.com';
 
 const headers = {
     Authorization: `Basic ${Buffer.from(`${EMAIL}:${API_KEY}`).toString('base64')}`,
     'Accept': 'application/json',
     'Content-Type': 'application/json',
-    "Access-Control-Allow-Origin": "*"
+    "Access-Control-Allow-Origin": "*",
+    "X-Atlassian-Token": "no-check",
+    "User-Agent": "*"
 }
 
 const API = axios.create({baseURL: 'https://legioner1251.atlassian.net/rest/api/3'});

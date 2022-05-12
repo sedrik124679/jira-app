@@ -7,6 +7,9 @@ import TableBody from "@mui/material/TableBody";
 import DashboardItem from "./DashboardItem/DashboardItem";
 
 const DashBoardsTable = ({dashboards}) => {
+    if (!dashboards) {
+        return <h1>Loading...</h1>
+    }
     return (
         <TableContainer component={Paper} sx={{mt: '2rem'}}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
