@@ -3,11 +3,7 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getOneProject} from "../../redux/actions/projects";
 import {getAllIssues} from "../../redux/actions/issues";
-import {Box, Button, Container, Paper, Table, TableContainer, Typography} from "@mui/material";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableBody from "@mui/material/TableBody";
+import {Box, Button, Container, Typography} from "@mui/material";
 import IssuesTable from "../../components/IssuesTable/IssuesTable";
 
 const Project = () => {

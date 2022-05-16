@@ -5,6 +5,11 @@ import TableRow from "@mui/material/TableRow";
 import {Link} from "react-router-dom";
 
 const ProjectItem = ({project}) => {
+
+    if(!project) {
+        return <h1>Loading...</h1>
+    }
+
     const {id, key, avatarUrls, name, isPrivate} = project;
 
     return (

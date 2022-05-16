@@ -4,7 +4,7 @@ import MyInput from "../UI/MyInput/MyInput";
 import {useDispatch} from "react-redux";
 import {addNewDashboards} from "../../redux/actions/dashboards";
 
-const DashboardsModal = ({open, handleClose}) => {
+const DashboardsModal = ({open, handleClose, dashboards}) => {
 
     const dispatch = useDispatch();
 
@@ -31,6 +31,18 @@ const DashboardsModal = ({open, handleClose}) => {
         ],
         description: ''
     })
+    const cleanForm = () => {
+        setFormData({
+            editPermissions: [],
+            name: '',
+            sharePermissions: [
+                {
+                    type: "private"
+                }
+            ],
+            description: ''
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -40,7 +52,9 @@ const DashboardsModal = ({open, handleClose}) => {
             return
         }
 
-        dispatch(addNewDashboards(formData))
+        dispatch(addNewDashboards(formData));
+        cleanForm();
+        handleClose(true);
     }
 
     return (

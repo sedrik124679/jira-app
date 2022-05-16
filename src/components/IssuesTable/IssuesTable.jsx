@@ -8,6 +8,8 @@ import IssueItem from "./IssueItem/IssueItem";
 
 const IssuesTable = ({issues}) => {
 
+    console.log(issues)
+
     if (issues?.length === 0) {
         return <Typography align={'center'}>You don't have any issues</Typography>
     }

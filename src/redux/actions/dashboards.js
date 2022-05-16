@@ -1,23 +1,29 @@
 import * as api from '../../API/API'
-import {ADD_DASHBOARDS, GET_DASHBOARDS} from "../constants/constants";
+import {ADD_DASHBOARDS, DELETE_DASHBOARD, GET_DASHBOARDS} from "../constants/constants";
 
 export const getAllDashboards = () => async (dispatch) => {
     try {
         const {data} = await api.getDashboards();
-
-        dispatch({type: GET_DASHBOARDS, data})
+        const {dashboards} = data
+        dispatch({type: GET_DASHBOARDS, dashboards})
     } catch (e) {
         console.log(e)
     }
 }
 
 export const addNewDashboards = (formData) => async (dispatch) => {
-
-    const {name, description, editPermissions, sharePermissions} = formData;
-
     try {
-        const {data} = await api.addDashboards(name, description, editPermissions, sharePermissions);
-        dispatch({type: ADD_DASHBOARDS, data})
+        const {data} = await api.addDashboards(formData);
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+export const deleteOneDashboard = (id) => async (dispatch) => {
+    try {
+        const {data} = await api.deleteDashboard(id);
+
+        dispatch({type: DELETE_DASHBOARD, data})
     } catch (e) {
         console.log(e)
     }

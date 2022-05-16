@@ -7,6 +7,11 @@ import TableBody from "@mui/material/TableBody";
 import ProjectItem from "./ProjectItem/ProjectItem";
 
 const ProjectsTable = ({projects}) => {
+
+    if (!projects) {
+        return <h1>Loading...</h1>
+    }
+
     return (
         <TableContainer component={Paper} sx={{mt: '2rem'}}>
             <Table sx={{ minWidth: 900 }} aria-label="simple table">

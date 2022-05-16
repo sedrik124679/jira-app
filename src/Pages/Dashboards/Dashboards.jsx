@@ -11,12 +11,11 @@ const Dashboards = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const state = useSelector(state => state.dashboards.dashboards)
+
     useEffect(() => {
         dispatch(getAllDashboards())
-    }, [dispatch])
-
-    const state = useSelector(state => state.dashboards.dashboards)
-    console.log(state)
+    }, [state])
 
     if (!state) {
         return <h1>Loading...</h1>
@@ -29,9 +28,9 @@ const Dashboards = () => {
                 <Button onClick={handleOpen} variant={'outlined'} color={'error'}>Create dashboard</Button>
             </Box>
             <DashBoardsTable
-                dashboards={state.dashboards}
+                dashboards={state}
             />
-            <DashboardsModal open={open} handleClose={handleClose}/>
+            <DashboardsModal open={open} dashboards={state} handleClose={handleClose}/>
         </Container>
     );
 };
