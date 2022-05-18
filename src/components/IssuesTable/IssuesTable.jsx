@@ -6,9 +6,7 @@ import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import IssueItem from "./IssueItem/IssueItem";
 
-const IssuesTable = ({issues}) => {
-
-    console.log(issues)
+const IssuesTable = ({issues, issueTypes}) => {
 
     if (issues?.length === 0) {
         return <Typography align={'center'}>You don't have any issues</Typography>

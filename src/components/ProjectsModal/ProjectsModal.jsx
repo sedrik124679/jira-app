@@ -8,6 +8,7 @@ import Select from '@mui/material/Select';
 import {Create} from "@mui/icons-material";
 import {useDispatch} from "react-redux";
 import {addNewProject} from "../../redux/actions/projects";
+import {useNavigate} from "react-router-dom";
 
 const ProjectsModal = ({open, handleClose}) => {
 
@@ -23,6 +24,7 @@ const ProjectsModal = ({open, handleClose}) => {
         p: 4,
     };
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -34,7 +36,7 @@ const ProjectsModal = ({open, handleClose}) => {
 
         formData.key = formData.key.toUpperCase();
 
-        dispatch(addNewProject(formData))
+        dispatch(addNewProject(formData, navigate))
         clearForm()
         handleClose()
     }
@@ -116,8 +118,8 @@ const ProjectsModal = ({open, handleClose}) => {
                             label="Age"
                             onChange={e => setFormData({...formData, projectTemplateKey: e.target.value})}
                         >
-                            <MenuItem value={'com.pyxis.greenhopper.jira:gh-simplified-agility-kanban'}>Kanban</MenuItem>
-                            <MenuItem value={'com.pyxis.greenhopper.jira:gh-simplified-agility-scrum'}>Scrum</MenuItem>
+                            <MenuItem value={'com.pyxis.greenhopper.jira:gh-simplified-kanban-classic'}>Kanban</MenuItem>
+                            <MenuItem value={'com.pyxis.greenhopper.jira:gh-simplified-scrum-classic'}>Scrum</MenuItem>
                             <MenuItem value={'com.pyxis.greenhopper.jira:gh-simplified-basic'}>Bug tracking</MenuItem>
                         </Select>
                     </FormControl>

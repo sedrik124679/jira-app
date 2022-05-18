@@ -9,11 +9,11 @@ const Projects = () => {
 
     const dispatch = useDispatch()
 
-    const state = useSelector(state => state.projects.projects)
-
     useEffect(() => {
         dispatch(getAllProject())
-    }, [state])
+    }, [])
+
+    const state = useSelector(state => state.projects.projects)
 
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true);

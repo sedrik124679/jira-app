@@ -1,7 +1,7 @@
 import axios from "axios";
 import {Buffer} from 'buffer';
 
-export const API_KEY = 's3CQdGdgzqq5CpRGkcSH3556';
+
 export const EMAIL = 'legioner1251@gmail.com';
 
 const headers = {
@@ -23,5 +23,8 @@ export const deleteDashboard = (id) => API.delete(`/dashboard/${id}`)
 
 export const getProjects = () => API.get('/project');
 export const getProject = id => API.get(`/project/${id}`)
-export const getAllIssuesByProjectName = projectName => API.get(`/search?jql=project=${projectName}&maxResults=1000`)
 export const createProject = formData => API.post('/project', {...formData});
+export const deleteProject = id => API.delete(`/project/${id}`);
+
+export const getAllIssuesByProjectName = projectName => API.get(`/search?jql=project=${projectName}&maxResults=1000`)
+export const addIssueToProject = (formData) => API.post(`/issue`, {...formData})

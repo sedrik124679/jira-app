@@ -1,9 +1,11 @@
-import {GET_ISSUES} from "../constants/constants";
+import {ADD_ISSUE, GET_ISSUES} from "../constants/constants";
 
-const issuesReducer = (state = {issues: null}, action) => {
+const issuesReducer = (state = {issues: []}, action) => {
     switch (action.type) {
         case GET_ISSUES:
-            return {...state, issues: action.data, loading: false, errors: null}
+            return {...state, issues: action.data.issues, loading: false, errors: null}
+        case ADD_ISSUE:
+            return {...state, issues: [...state.issues, action.data]}
         default:
             return state
     }

@@ -20,6 +20,7 @@ const ProjectsTable = ({projects}) => {
                         <TableCell>Name</TableCell>
                         <TableCell align="right">Key</TableCell>
                         <TableCell align="right">isPrivate</TableCell>
+                        <TableCell align="right">Options</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

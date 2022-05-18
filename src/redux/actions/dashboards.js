@@ -14,6 +14,8 @@ export const getAllDashboards = () => async (dispatch) => {
 export const addNewDashboards = (formData) => async (dispatch) => {
     try {
         const {data} = await api.addDashboards(formData);
+
+        dispatch({type: ADD_DASHBOARDS, data})
     } catch (e) {
         console.log(e)
     }

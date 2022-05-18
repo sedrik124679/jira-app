@@ -6,6 +6,8 @@ import {Avatar, Typography} from "@mui/material";
 const IssueItem = ({issue}) => {
     const {id, key, fields} = issue;
 
+    if(!fields) return
+
     return (
         <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
             <TableCell component="th" scope="row">
@@ -13,7 +15,7 @@ const IssueItem = ({issue}) => {
             </TableCell>
             <TableCell align="center">{key}</TableCell>
             <TableCell align="center">{fields.summary}</TableCell>
-            <TableCell align="center">{fields.assignee ? fields.assignee : 'Unassigned'}</TableCell>
+            <TableCell align="center">{fields.assignee.active ? 'Active' : 'Not active'}</TableCell>
             <TableCell align="center" style={{display: 'flex', justifyContent: 'center'}}>
                 <Avatar src={`${Object.values(fields.reporter.avatarUrls)[0]}`} style={{width: '24px', height: '24px'}}/>
                 <Typography alignSelf={'center'} align={'center'}>{fields.reporter.displayName}</Typography>
